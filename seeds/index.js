@@ -3,6 +3,8 @@ const cities = require('./cities');
 const { places, descriptors } = require('./seedHelpers');
 const Campground = require('../models/campground');
 
+// const dbUrl =  process.env.DB_URL ;
+// ||'mongodb://localhost:27017/yelp-camp'
 mongoose.connect('mongodb://localhost:27017/yelp-camp', {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -26,7 +28,7 @@ const seedDB = async () => {
         const price = Math.floor(Math.random() * 20 + 10);
         const camp = new Campground({
             //MY USER ID ; DO NOT DELETE TAMMY
-            author: '60a628cbca1bd2137073ff14',
+            author: '60a955a7d962c40015c9ddc2',
             location: `${cities[random1000].city},${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
             description: 'Camping is a recreational (and oftentimes laid-back) activity pursued outdoors, away from cities and towns and in the lap of nature, with fresh air and (occasionally) wildlife for company. One can set up a tent, or live in a caravan, camper-van or motor-home when camping.',
@@ -39,11 +41,6 @@ const seedDB = async () => {
                 ]
             },
             images: [
-                {
-
-                    url: 'https://res.cloudinary.com/dosjbs42e/image/upload/v1621580288/YelpCamp/ubqxq7rnuroyf3ijnufc.jpg',
-                    filename: 'YelpCamp/ubqxq7rnuroyf3ijnufc'
-                },
                 {
 
                     url: 'https://res.cloudinary.com/dosjbs42e/image/upload/v1621580290/YelpCamp/qmlutcrcp0uzubu4lvcq.jpg',
